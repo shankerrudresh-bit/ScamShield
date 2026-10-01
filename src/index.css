@@ -1,46 +1,152 @@
+/* ScamShield — SMS & WhatsApp Scam Inspector
+   Design system: dark slate/ink + neon green/cyan (light mode equivalent).
+   Adapted from the generated MASTER.md — user explicitly asked for
+   green/cyan cybersecurity palette over the purple/pink default.
+   Typography follows MASTER.md: Plus Jakarta Sans.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 @import "tailwindcss";
 
-/* THESE ARE PLACEHOLDER FOR EMPTY APP, FEEL FREE TO REPLACE WITH DESIRED DESIGN */
-
-@theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --color-text-muted: var(--text-muted);
-}
+/* Class-based dark mode (toggled on <html>), persisted + system-default. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --text-muted: oklch(0.554 0.046 257.417);
-  --dotgrid-surface: oklch(0.97 0 0);
-  --dotgrid-glow-strong: oklch(0.45 0.05 250 / 12%);
-  --dotgrid-glow-mid: oklch(0.45 0.05 250 / 7%);
-  --dotgrid-glow-soft: oklch(0.45 0.05 250 / 4%);
-  --dotgrid-glow-faint: oklch(0.45 0.05 250 / 2%);
-  --dotgrid-dot: oklch(0 0 0 / 20%);
+  --bg: oklch(0.965 0.008 220);
+  --bg-elevated: oklch(0.99 0.003 220);
+  --fg: oklch(0.22 0.03 240);
+  --fg-muted: oklch(0.48 0.03 245);
+  --border: oklch(0.9 0.012 230);
+  --card: oklch(0.99 0.002 220);
+  /* neon green primary */
+  --primary: oklch(0.62 0.19 152);
+  --primary-strong: oklch(0.52 0.18 152);
+  --on-primary: oklch(1 0 0);
+  /* cyan accent */
+  --accent: oklch(0.62 0.14 224);
+  --accent-soft: oklch(0.94 0.03 220);
+  --danger: oklch(0.55 0.2 25);
+  --danger-soft: oklch(0.93 0.05 25);
+  --warn: oklch(0.68 0.14 75);
+  --warn-soft: oklch(0.95 0.06 90);
+  --ok: oklch(0.6 0.16 152);
+  --ok-soft: oklch(0.94 0.06 152);
+  --ring: oklch(0.55 0.19 152);
+  --grid-line: oklch(0.35 0.03 250 / 5%);
+  --glow: oklch(0.55 0.19 152 / 28%);
+  --glow-cyan: oklch(0.62 0.14 224 / 22%);
 }
 
 .dark {
-  --text-muted: oklch(0.9015 0.0154 241.79);
-  --dotgrid-surface: oklch(0.1638 0 0);
-  --dotgrid-glow-strong: oklch(0.41 0.14 250 / 45%);
-  --dotgrid-glow-mid: oklch(0.41 0.14 250 / 22%);
-  --dotgrid-glow-soft: oklch(0.41 0.14 250 / 10%);
-  --dotgrid-glow-faint: oklch(0.41 0.14 250 / 4%);
-  --dotgrid-dot: oklch(0.41 0.14 250 / 4%);
+  --bg: oklch(0.14 0.02 250);
+  --bg-elevated: oklch(0.17 0.02 250);
+  --fg: oklch(0.93 0.012 245);
+  --fg-muted: oklch(0.68 0.02 245);
+  --border: oklch(0.28 0.02 248);
+  --card: oklch(0.17 0.022 250);
+  --primary: oklch(0.78 0.19 152);
+  --primary-strong: oklch(0.84 0.17 150);
+  --on-primary: oklch(0.16 0.03 240);
+  --accent: oklch(0.8 0.13 220);
+  --accent-soft: oklch(0.24 0.04 225);
+  --danger: oklch(0.7 0.17 25);
+  --danger-soft: oklch(0.28 0.06 25);
+  --warn: oklch(0.78 0.14 85);
+  --warn-soft: oklch(0.3 0.05 85);
+  --ok: oklch(0.8 0.15 152);
+  --ok-soft: oklch(0.26 0.05 152);
+  --ring: oklch(0.78 0.19 152);
+  --grid-line: oklch(0.8 0.02 240 / 6%);
+  --glow: oklch(0.78 0.19 152 / 20%);
+  --glow-cyan: oklch(0.8 0.13 220 / 16%);
 }
 
-.bg-dotgrid-glow {
-  background-color: var(--dotgrid-surface);
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-heading: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-background: var(--bg);
+  --color-elevated: var(--bg-elevated);
+  --color-foreground: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-border-custom: var(--border);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+
+  --shadow-glow: 0 0 0 1px var(--border), 0 10px 40px -12px var(--glow);
+  --shadow-glow-cyan: 0 0 0 1px var(--border), 0 10px 40px -12px var(--glow-cyan);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle tech-grid backdrop */
+.cyber-grid {
   background-image:
-    radial-gradient(
-      circle at 50% 118%,
-      var(--dotgrid-glow-strong) 0%,
-      var(--dotgrid-glow-mid) 22%,
-      var(--dotgrid-glow-soft) 32%,
-      var(--dotgrid-glow-faint) 38%,
-      transparent 45%
-    ),
-    radial-gradient(var(--dotgrid-dot) 1px, transparent 1px);
+    radial-gradient(circle at 18% 8%, var(--glow-cyan) 0%, transparent 34%),
+    radial-gradient(circle at 85% 12%, var(--glow) 0%, transparent 38%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size:
     100% 100%,
-    16px 16px;
-  background-position: center, center;
+    100% 100%,
+    44px 44px,
+    44px 44px;
+}
+
+/* HVAC-style focus ring */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Meter gauge stroke — animated on mount via the gauge component */
+.meter-arc {
+  transition: stroke-dashoffset 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Count-up number uses a short ease-out transition */
+.score-number {
+  transition: color 300ms ease-out;
+}
+
+/* Thin scrollbars for history list */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
 }
