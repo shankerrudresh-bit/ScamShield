@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: #080d16; font-family: "Space Grotesk", "Segoe UI", sans-serif; }
+button, input, textarea { font: inherit; }
+
+.panel { border: 1px solid #1e293b; border-radius: 1.25rem; background: rgba(15, 23, 42, 0.78); padding: 1.5rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); }
+.eyebrow { color: #64748b; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; line-height: 1rem; text-transform: uppercase; }
+.panel-title { margin-top: 0.35rem; color: #f8fafc; font-size: 1.25rem; font-weight: 700; }
+.input-area, .text-input { width: 100%; border: 1px solid #334155; border-radius: 0.875rem; background: #0b1220; color: #e2e8f0; outline: none; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.input-area { min-height: 14rem; margin-top: 1.5rem; resize: vertical; padding: 1rem; font-size: 0.875rem; line-height: 1.6; }
+.text-input { margin-top: 1.5rem; padding: 0.85rem 1rem; font-size: 0.875rem; }
+.input-area::placeholder, .text-input::placeholder { color: #475569; }
+.input-area:focus, .text-input:focus { border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12); }
+.primary-button { border: 0; border-radius: 0.75rem; background: #06b6d4; padding: 0.7rem 1rem; color: #042f3b; font-size: 0.875rem; font-weight: 800; transition: background 160ms ease, transform 160ms ease; }
+.primary-button:hover { background: #67e8f9; transform: translateY(-1px); }
+.primary-button:disabled { cursor: not-allowed; opacity: 0.4; transform: none; }
+.demo-button { border: 1px solid #334155; border-radius: 999px; background: #0f172a; padding: 0.45rem 0.75rem; color: #94a3b8; font-size: 0.75rem; font-weight: 700; transition: border-color 160ms ease, color 160ms ease; }
+.demo-button:hover { border-color: #22d3ee; color: #cffafe; }
+.toggle-group { display: flex; gap: 0.25rem; border: 1px solid #1e293b; border-radius: 0.7rem; background: #0b1220; padding: 0.25rem; }
+.toggle-active, .toggle-idle { border: 0; border-radius: 0.5rem; padding: 0.45rem 0.7rem; font-size: 0.75rem; font-weight: 700; }
+.toggle-active { background: rgba(34, 211, 238, 0.15); color: #a5f3fc; }
+.toggle-idle { background: transparent; color: #64748b; }
+.toggle-idle:hover { color: #e2e8f0; }
+.score-ring { display: grid; size: 4.5rem; min-width: 4.5rem; height: 4.5rem; place-items: center; border: 2px solid currentColor; border-radius: 999px; font-size: 1.15rem; font-weight: 800; }
+.risk-safe { color: #34d399; }
+.risk-caution { color: #fbbf24; }
+.risk-threat { color: #f87171; }
+.meter-safe { background: #34d399; }
+.meter-caution { background: #fbbf24; }
+.meter-threat { background: #f87171; }
